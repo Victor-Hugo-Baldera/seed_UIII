@@ -1,0 +1,160 @@
+---
+title: "Etiquetas de Muestrearo"
+author: "Grupo "
+format: html
+---
+
+```{r}
+source("https://inkaverse.com/setup.r")
+url <- "https://docs.google.com/spreadsheets/d/1qFEqa4_2bXCYp4nFU75J83k4zO8d0Cyq5Vc78rMo-SQ/edit?gid=0#gid=0"
+
+gs <- as_sheets_id(url)
+fb <- range_read(gs, sheet = "fb")
+
+```
+
+```{r}
+library(huito)
+
+font <- c("Permanent Marker", "Tillana", "Courgette")
+
+huito_fonts(font)
+
+label <- fb %>%
+  label_layout(size = c(4 , 4)
+               , border_color = "blue"
+               , border_width = 1
+              )  %>%
+  include_image(value = "https://www.untrm.edu.pe/assets/images/untrmazul.png"
+                , size = c(1.5, 1.8)
+                , position = c(0.9, 3.5)
+                ) %>% 
+    include_image(value = "muestrario/fica.jpeg"
+                , size = c(1.2, 1.2)
+                , position = c( 2.45, 3.5)
+                ) %>% 
+    include_image(value = "muestrario/ia.jpeg"
+                , size = c(0.6, 0.6)
+                , position = c(3.5, 3.5)
+                ) %>%
+  include_text(value = "Nombre Común"
+             , position = c(2,2.9 )
+             , size = 10
+             , color = "#5b1f00"
+             , font[1]
+             ) %>% 
+  include_text(value = "Nombre Científico"
+             , position = c(2,2.4)
+             , size = 9
+             , color = "forestgreen"
+             , font[3]
+             ) %>% 
+  include_text(value = "PLOT"
+             , position = c(0.8,1.2)
+             , size = 7
+             , color = "black"
+             , font[1]
+             , angle = 90
+             ) %>% 
+ include_barcode(value = "QR"
+             , size =c(2, 2) 
+             , position = c(2,1.1)
+            )
+             
+
+  
+label %>% label_print()
+
+label %>%
+  label_print(mode = "complete", filename = "etiquetas_HER", nlabels = 20)
+```
+
+
+#  para el grupo 
+
+```{r}
+library(huito)
+
+font <- c("Permanent Marker", "Tillana", "Courgette")
+
+huito_fonts(font)
+
+label1 <- fb %>%
+  label_layout(size = c(7 , 8)
+               , border_color = "forestgreen"
+               , border_width = 1
+              )  %>%
+  include_image(value = "https://www.untrm.edu.pe/assets/images/untrmazul.png"
+                , size = c(2.8, 2.9)
+                , position = c(1.7, 7)
+                ) %>% 
+    include_image(value = "muestrario/fica.jpeg"
+                , size = c(2, 2)
+                , position = c( 4.6, 7)
+                ) %>% 
+    include_image(value = "muestrario/ia.jpeg"
+                , size = c(1, 1)
+                , position = c(6.4, 7)
+                ) %>%
+  include_text(value = "Integrantes "
+             , position = c(4,6 )
+             , size = 15
+             , color = "#5b1f00"
+             , font[1]
+             ) %>% 
+  include_text(value = "Arista Fernandez, Hector Stalin"
+             , position = c(1,5)
+             , size = 10
+             , color = "black"
+             , font[3]
+             , opts = "hjust = 0"
+             ) %>% 
+  include_text(value = "Baldera Chapoñan, Victor Hugo"
+             , position = c(1,4.5)
+             , size = 10
+             , color = "black"
+             , font[3]
+             , opts = "hjust = 0"
+             ) %>% 
+  include_text(value = "Fernandez Poquioma, Deyli Maylita"
+             , position = c(1,4)
+             , size = 10
+             , color = "black"
+             , font[3]
+             , opts = "hjust = 0"
+             ) %>%
+  include_text(value = "Gomez Torres, Euler"
+             , position = c(1,3.5)
+             , size = 10
+             , color = "black"
+             , font[3]
+             , opts = "hjust = 0"
+             ) %>%
+  
+  include_text(value = "Saldaña Bazán, Magaly"
+             , position = c(1,3)
+             , size = 10
+             , color = "black"
+             , font[3]
+             , opts = "hjust = 0"
+             ) %>%
+  include_text(value = "Curso"
+             , position = c(4,2)
+             , size = 15
+             , color = "#5b1f00"
+             , font[1]
+             ) %>% 
+  include_text(value = "Producción y Tecnología de Semillas"
+             , position = c(3.5,1)
+             , size = 10
+             , color = "black"
+             , font[3]
+             ) 
+
+  
+label1 %>% label_print()
+
+label1%>%
+  label_print(mode = "complete", filename = "etiquetas_integraste", nlabels = 1)
+```
+
